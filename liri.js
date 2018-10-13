@@ -152,12 +152,9 @@ let doWhatItSays = function () {
         if (error) {
             return console.log(error);
         }
-        console.log(data);
         let commands = data.split(',');
-        console.log(commands)
         if (commands[0] === "concert-this") {
             let newArtist = commands[1];
-            console.log('newArtist',newArtist)
             let bandsURL = "https://rest.bandsintown.com/artists/" + newArtist + "/events?app_id=codingbootcamp";
             request(bandsURL, function (error, response, body) {
                 if (error) {
@@ -186,7 +183,6 @@ let doWhatItSays = function () {
         if (commands[0] === "movie-this") {
             let newMovieName = commands[1];
             let movieURL = "https://www.omdbapi.com/?t=" + newMovieName + "&plot=short&apikey=trilogy";
-            //console.log(movieURL);
             request(movieURL, function (error, response, body) {
                 if (error) {
                     return 
